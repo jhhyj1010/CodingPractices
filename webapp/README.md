@@ -19,12 +19,21 @@ In this webapp implementation, two endpoints have been created:
 
 
 
-#### How to test?
-1. Prepare virtual environment by executing "python -m venv .venv && source .venv/bin/activate".
+### How to test?
+1. Prepare virtual environment by executing 
+```
+python -m venv .venv && source .venv/bin/activate
+```
 
-2. Install Python libraries for FastAPI by running "pip install -r requirements.txt" within current virtual environment.
+2. Install Python libraries for FastAPI by running the following command within current virtual environment.
+```
+pip install -r requirements.txt
+```
 
-3. Start FastAPI locally by running "uvicorn main:app --reload" under folder webapp.
+3. Start FastAPI locally by running the following command under folder webapp.
+```
+uvicorn main:app --reload
+```
 
 4. Go to browser and direct to http://localhost:8000/docs
 ![alt text](image.png)
@@ -36,14 +45,14 @@ In this webapp implementation, two endpoints have been created:
 
 6. After finishing tests, we can remove the images by callling endpoint "/remove_image/<image_name>" with the filenames in the output of "get_images_history" API call.
 
-Before removing images,
+- Before removing images,
 
 ![alt text](image-5.png)
 
-Call API /get_images_history to remove specified image (both original and compressed images will be deleted!)
+- Call API /get_images_history to remove specified image (both original and compressed images will be deleted!)
 ![alt text](image-6.png)
 
-After removing images,
+- After removing images,
 
 ![alt text](image-7.png)
 
