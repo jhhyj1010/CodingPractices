@@ -52,16 +52,16 @@ Focus on code quality over feature quantity.
 
 Review and refactor the following five code snippets. Identify any issues, explain the problems, and provide corrected versions.
 
-# Review 1
+### Review 1
 def add_to_list(value, my_list=[]):
     my_list.append(value)
     return my_list
  
-# Review 2
+### Review 2
 def format_greeting(name, age):
     return "Hello, my name is {name} and I am {age} years old."
  
-# Review 3
+### Review 3
 class Counter:
     count = 0
     def __init__(self):
@@ -69,7 +69,7 @@ class Counter:
     def get_count(self):
         return self.count
  
-# Review 4
+### Review 4
 import threading
 class SafeCounter:
     def __init__(self):
@@ -91,7 +91,7 @@ for _ in range(10):
 for t in threads:
     t.join()
  
-# Review 5
+### Review 5
 def count_occurrences(lst):
     counts = {}
     for item in lst:
@@ -184,5 +184,4 @@ def myReduce(fn, accm, list):
     return myReduce(fn, fn(accm, list.head), list.tail)
 
  
-
-# Implement myReduceRight
+Implement myReduceRight

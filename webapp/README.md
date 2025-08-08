@@ -2,16 +2,15 @@
 
 This webapp is a FastAPI application which is used for uploading compressed images and query history images that had been uploaded previously.
 
-In this webapp implementation, two endpoints have been created:
+In this webapp implementation, these endpoints have been created:
 1. [POST] "/upload_compress_image"
-- This endpoint is used for uploading and compressing images in certain quality.
-- To avoid any traffic issues, the image size is limited to 10 MB.
-- The remaining disk space needs to be checked, we will throw an exception and let users know what happens in this case.
+- This endpoint is used for uploading and compressing images in a specific quality (50% by default).
+- To avoid any traffic issues, the image size is limited to 5 MB.
+- The remaining disk space needs to be checked, it will throw an exception and let users know what happens in this case.
 
 
 2. [GET] "/get_images_history"
 - This endpoint is used for retrieving images history, a JSON format string would be returned to users.
-- The quality for image is 50% by default to save memory and disk spaces.
 
 
 3. [POST] "/remove_image/<image_name>"
@@ -39,11 +38,12 @@ uvicorn main:app --reload
 ![alt text](image.png)
 
 5. Try these two endpoints (/upload_compressed_images/ and /get_images_history/) according to the indications with in the forms, one for uploading & compressing images and another for query history of images being uploaded.
+
 ![alt text](image-3.png)
 
 ![alt text](image-4.png)
 
-6. After finishing tests, we can remove the images by callling endpoint "/remove_image/<image_name>" with the filenames in the output of "get_images_history" API call.
+6. After finishing tests, we can remove the images by callling endpoint "/remove_image/<image_name>" with the filenames based on the output of "get_images_history" API call.
 
 - Before removing images,
 
@@ -74,11 +74,14 @@ Check with the following example output for reference,
   }
 ]
 ```
-Please be notified that no output will be returned after rebooting FastAPI server because the data is in memory and not persistent.
+Please be notified that no output will be returned after rebooting FastAPI server because the data is stored in memory and not persistent.
 
 
 ### Corner Cases:
 1. Size exceeds the limitation (5MB).
+
 ![alt text](image-1.png)
+
 2. No space left on the device (Mock testing).
+
 ![alt text](image-2.png)
