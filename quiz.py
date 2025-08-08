@@ -6,7 +6,8 @@ def reverse_list(l: list):
     """
     length = len(l)
     for i in range(0, length // 2):
-        l[i], l[length-i-1] = l[length-i-1], l[i]
+        l[i], l[length - i - 1] = l[length - i - 1], l[i]
+
 
 def is_valid_sudoku(matrix) -> bool:
     """
@@ -40,8 +41,8 @@ def is_valid_sudoku(matrix) -> bool:
     ]
     for i, j in starters:
         s = set()
-        for r in range(i, i+3):
-            for c in range(j, j+3):
+        for r in range(i, i + 3):
+            for c in range(j, j + 3):
                 cell_value = matrix[r][c]
                 if cell_value in s:
                     return False
@@ -50,6 +51,7 @@ def is_valid_sudoku(matrix) -> bool:
 
     return True
 
+
 def find_empty_cell(matrix):
     """
     Find an empty cell
@@ -57,8 +59,9 @@ def find_empty_cell(matrix):
     for i in range(9):
         for j in range(9):
             if matrix[i][j] == 0:
-                return i,j
+                return i, j
     return None
+
 
 def solve_sudoku(matrix):
     """
@@ -72,7 +75,7 @@ def solve_sudoku(matrix):
     empty_cell = find_empty_cell(matrix)
     if not empty_cell:
         return True
-    
+
     r, c = empty_cell
     for number in range(1, 10):
         if is_valid_sudoku(matrix):
@@ -80,24 +83,25 @@ def solve_sudoku(matrix):
 
             if solve_sudoku(matrix):
                 return True
-        else: # Avoid unnecessary checks
+        else:  # Avoid unnecessary checks
             break
-            
+
         matrix[r][c] = 0
 
     return False
+
 
 # Print matrix nicely
 def print_matrix(matrix):
     for i in range(9):
         print(matrix[i])
         if i == 2 or i == 5:
-            print('---------------------------')
+            print("---------------------------")
 
 
 # Test for reverse_list
-l1 = [1,2,3]
-l2 = [1,2,3,4]
+l1 = [1, 2, 3]
+l2 = [1, 2, 3, 4]
 reverse_list(l1)
 reverse_list(l2)
 print(f"List l1 after reversed: {l1}")
@@ -106,16 +110,16 @@ print(f"List l2 after reversed: {l2}")
 
 # Test for solve_sudoku
 input_board = [
-        [5, 0, 0, 0, 7, 0, 0, 0, 0],
-        [6, 0, 0, 1, 9, 5, 0, 0, 0],
-        [0, 1, 8, 0, 0, 0, 0, 6, 0],
-        [8, 0, 0, 0, 6, 0, 0, 0, 3],
-        [4, 0, 0, 8, 0, 3, 0, 0, 1],
-        [7, 0, 0, 0, 2, 0, 0, 0, 6],
-        [0, 6, 0, 0, 0, 0, 2, 8, 0],
-        [0, 0, 0, 4, 1, 9, 0, 0, 5],
-        [0, 0, 0, 0, 8, 0, 0, 7, 9]
-    ]
+    [5, 0, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 1, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9],
+]
 
 print(solve_sudoku(input_board))
 print("Matrix Board after fix >>>")

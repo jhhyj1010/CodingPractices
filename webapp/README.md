@@ -19,6 +19,9 @@ In this webapp implementation, these endpoints have been created:
 
 
 ### How to test?
+
+Change directory to webapp.
+
 1. Prepare virtual environment by executing 
 ```
 python -m venv .venv && source .venv/bin/activate
