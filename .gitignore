@@ -1,0 +1,4 @@
+.venv
+.env
+webapp/uploaded_images/
+*.log
