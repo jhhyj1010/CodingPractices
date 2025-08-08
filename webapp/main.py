@@ -57,12 +57,12 @@ async def upload_compressed_images(file: UploadFile = File(...), quality=50):
 
 
 @app.get("/get_images_history/")
-def get_images_history():
+async def get_images_history():
     return [{"file name": k, "file information": v} for k, v in IMAGES_HISTORY.items()]
 
 
 @app.post("/remove_image/<image_name>")
-def remove_image(image_name):
+async def remove_image(image_name):
     original_filename = "original-" + image_name
     original_full_path = f"{PWD}/{UPLOAD_LOCATION}/{original_filename}"
     compressed_filename = "compressed-" + image_name
