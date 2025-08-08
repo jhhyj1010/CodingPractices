@@ -2,3 +2,4 @@
 .env
 webapp/uploaded_images/
 *.log
+__pycache__
